@@ -29,7 +29,7 @@ Version Control: Git & GitHub
 <li style= "font-size:12px;">Contact: Ways to get in touch with me.</li>
 </ul>
 
-<h2>🎯 Features<h2>
+<h2>🎯 Features</h2>
 <ul>
 <li>
 Fully responsive design
