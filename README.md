@@ -9,7 +9,8 @@
 
 <h2>🛠️ Tech Stack</h2>
 <ul>
-<li>Frontend: React
+<li>
+Frontend: React
 </li>
 <li>
 Styling: Tailwind CSS
@@ -18,3 +19,32 @@ Styling: Tailwind CSS
 Version Control: Git & GitHub
 </li>
 </ul>
+
+<h2>📑 About<h2>
+<p>This portfolio website showcases:</p>
+<ul>
+<li>My Projects: An overview of the projects I've worked on.</li>
+<li>Skills: My tech skills and tools I’m proficient in.</li>
+<li>Experience: Professional experience and education</li>
+<li>Contact: Ways to get in touch with me.</li>
+</ul>
+
+<h2>🎯 Features<h2>
+<ul>
+<li>
+Fully responsive design
+</li>
+<li>
+Smooth navigation and clean UI
+</li>
+<li>
+Easy to update content via React components
+</li>
+</ul>
+<h2>🖼️ Screenshots</h2>
+<p>Here’s a preview of what the portfolio looks like:</p>
+
+<h2>📧 Contact</h2>
+<p>If you’d like to connect, reach out to me at:
+Email | LinkedIn</p>
+
