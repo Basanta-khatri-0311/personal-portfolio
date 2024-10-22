@@ -1,3 +1,3 @@
 # personal-portfolio
 
-#🎨 Basanta Khatri - Personal Portfolio
+<h1>🎨 Basanta Khatri - Personal Portfolio </h1>
