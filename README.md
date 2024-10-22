@@ -29,4 +29,4 @@ Here’s a preview of what the portfolio looks like:
 
 ## 📧 Contact
 If you’d like to connect, reach out to me at:  
-[Email](mailto:basanta@example.com) | [LinkedIn](#)
+[Email](mailto:khatribasanta.works09@gmail.com) | [LinkedIn](https://www.linkedin.com/in/basanta-khatri-941390238/)
