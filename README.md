@@ -20,7 +20,7 @@ Version Control: Git & GitHub
 </li>
 </ul>
 
-<h2>📑 About<h2>
+<h2>📑 About</h2>
 <p>This portfolio website showcases:</p>
 <ul>
 <li style= "font-size:12px;">My Projects: An overview of the projects I've worked on.</li>
