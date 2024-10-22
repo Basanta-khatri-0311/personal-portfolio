@@ -23,10 +23,10 @@ Version Control: Git & GitHub
 <h2>📑 About<h2>
 <p>This portfolio website showcases:</p>
 <ul>
-<li>My Projects: An overview of the projects I've worked on.</li>
-<li>Skills: My tech skills and tools I’m proficient in.</li>
-<li>Experience: Professional experience and education</li>
-<li>Contact: Ways to get in touch with me.</li>
+<li style= "font-size:12px;">My Projects: An overview of the projects I've worked on.</li>
+<li style= "font-size:12px;">Skills: My tech skills and tools I’m proficient in.</li>
+<li style= "font-size:12px;">Experience: Professional experience and education</li>
+<li style= "font-size:12px;">Contact: Ways to get in touch with me.</li>
 </ul>
 
 <h2>🎯 Features<h2>
