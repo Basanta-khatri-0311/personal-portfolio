@@ -2,7 +2,7 @@ import React from "react";
 
 const Links = () => {
   return (
-    <section className="fixed top-1/2 right-4 transform -translate-y-1/2 flex flex-col space-y-4">
+    <section className="hidden fixed top-1/2 right-4 transform -translate-y-1/2 sm:flex flex-col space-y-4 ">
       <a
         href="https://www.linkedin.com/in/basanta-khatri/"
         target="_blank"
