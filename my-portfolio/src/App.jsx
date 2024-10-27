@@ -5,11 +5,13 @@ import SocialLinks from "./components/SocialLinks"
 // import Projects from "./components/Projects"
 // import Contact from "./components/Contact"
 import Footer from "./components/Footer"
+import NavBar from "./components/NavBar"
 
 function App() {
 
   return (
     <div>
+      <NavBar/>
       <Hero/>
       <SocialLinks/>
       <Footer/>
