@@ -1,35 +1,3 @@
-// import React from "react";
-// import Logo from "./Logo"
-
-// const NavBar = () => {
-//   return (
-//     <nav className="fixed top-0 left-0 w-full bg-gray-800 p-4 shadow-lg z-50">
-//       <div className="container mx-auto flex justify-between items-center">
-//         <Logo/>
-//         <div className="space-x-24">
-//           <a href="#home" className="text-gray-300 relative group">
-//             Home
-//             <span className="absolute left-0 right-0 bottom-0 top-10 h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
-//           </a>
-//           <a href="#about" className="text-gray-300 relative group">
-//             About
-//             <span className="absolute left-0 right-0 bottom-0 top-10  h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
-//           </a>
-//           <a href="#projects" className="text-gray-300 relative group">
-//             Projects
-//             <span className="absolute left-0 right-0 bottom-0 top-10  h-1  bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
-//           </a>
-//           <a href="#contact" className="text-gray-300 relative group">
-//             Contact
-//             <span className="absolute left-0 right-0 bottom-0 top-10  h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
-//           </a>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default NavBar;
 import React, { useState } from "react";
 import Logo from "./Logo";
 
@@ -88,7 +56,7 @@ const NavLink = ({ href, children }) => {
       className="text-gray-300 relative group block"
     >
       {children}
-      <span className="absolute left-0 right-0 bottom-0 top-10 h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out md:group-hover:scale-x-100 md:block hidden"></span>
+      <span className="md:top-10 md:absolute md:left-0 md:right-0 md:bottom-0 md:h-1 md:bg-white md:scale-x-0 md:group-hover:scale-x-100 md:transition-transform md:duration-500 md:ease-in-out hidden md:block"></span>
     </a>
   );
 };
