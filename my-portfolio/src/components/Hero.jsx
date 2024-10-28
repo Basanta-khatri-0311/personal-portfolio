@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="hero w-screen h-screen bg-gradient-to-r from-gray-900 to-gray-800 flex items-center justify-center p-4">
+    <section id="home" className="hero w-screen h-screen bg-gradient-to-r from-gray-900 to-gray-800 flex items-center justify-center p-4">
       <div className="text-center">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white animate-slideInLeft ">
           Hi, I'm Basanta Khatri

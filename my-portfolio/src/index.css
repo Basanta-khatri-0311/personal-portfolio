@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.hero{
-    overflow: hidden;
-}
+/* *{
+  box-sizing: border-box;
+} */
 
   @keyframes slideInLeft {
     0% {
@@ -35,5 +35,21 @@
   
   .animate-slideInRight {
     animation: slideInRight 2s ease-in-out forwards;
+  }
+
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px); /* Move down initially */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Move to original position */
+    }
+  }
+  
+  .animate-fadeInUp {
+    animation: fadeInUp 1s ease-in-out forwards; /* Duration and easing */
   }
   
