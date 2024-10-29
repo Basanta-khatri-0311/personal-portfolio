@@ -28,7 +28,7 @@ const About = () => {
             seamless, scalable user interfaces. My goal is to create impactful
             web solutions that deliver value.
           </p>
-          <button className="px-6 py-3 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-full shadow-lg hover:bg-opacity-80 transform hover:scale-105 transition-transform duration-500 ease-in-out animate-fadeInUp delay-600">
+          <button className="px-6 py-3 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-full shadow-lg hover:bg-opacity-80 hover:shadow-xl transform hover:scale-125 transition-transform duration-500 ease-in-out ">
             Get in Touch
           </button>
         </div>
@@ -38,7 +38,7 @@ const About = () => {
           <h3 className="text-3xl md:text-4xl font-bold mb-4">My Journey</h3>
 
           {/* Timeline Item 1 */}
-          <div className="flex items-start space-x-4">
+          <div className="flex items-start space-x-4 px-5">
             <i className="ri-code-s-slash-line text-teal-400 text-3xl"></i>
             <div>
               <h4 className="text-xl font-semibold">2020 - Started Coding</h4>
@@ -51,7 +51,7 @@ const About = () => {
           </div>
 
           {/* Timeline Item 2 */}
-          <div className="flex items-start space-x-4">
+          <div className="flex items-start space-x-4 px-5">
             <i className="ri-macbook-line text-teal-400 text-3xl"></i>
             <div>
               <h4 className="text-xl font-semibold">2021 - Built Projects</h4>
@@ -64,7 +64,7 @@ const About = () => {
           </div>
 
           {/* Timeline Item 3 */}
-          <div className="flex items-start space-x-4">
+          <div className="flex items-start space-x-4 px-5">
             <i className="ri-reactjs-line text-teal-400 text-3xl"></i>
             <div>
               <h4 className="text-xl font-semibold">2023 - React Enthusiast</h4>
