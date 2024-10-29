@@ -2,54 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* *{
+* {
   box-sizing: border-box;
-} */
+}
 
-  @keyframes slideInLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  .animate-slideInLeft {
-    animation: slideInLeft 1s ease-in-out forwards; /* forwards keeps the final state */
-  }
+html,
+body {
+  background-color: #1f2937;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  
-  @keyframes slideInRight {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0;
   }
-  
-  .animate-slideInRight {
-    animation: slideInRight 2s ease-in-out forwards;
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
+}
 
+.animate-slideInLeft {
+  animation: slideInLeft 1s ease-in-out forwards; 
+}
 
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px); /* Move down initially */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* Move to original position */
-    }
+@keyframes slideInRight {
+  0% {
+    transform: translateX(20%);
+    opacity: 0;
   }
-  
-  .animate-fadeInUp {
-    animation: fadeInUp 1s ease-in-out forwards; /* Duration and easing */
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
+}
+
+.animate-slideInRight {
+  animation: slideInRight 2s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-in-out forwards; 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}

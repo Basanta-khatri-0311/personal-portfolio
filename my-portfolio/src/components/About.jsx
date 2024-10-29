@@ -4,17 +4,18 @@ const About = () => {
   return (
     <section
       id="about"
-      className="about w-screen min-h-screen pb-36 bg-gradient-to-r from-gray-900 to-gray-800 p-6 md:p-10 flex items-center justify-center"
+      className="about  w-screen min-h-screen pb-36 bg-gradient-to-r from-gray-900 to-gray-800 p-6 md:p-10 flex items-center justify-center"
     >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        
         {/* Left Side: Description with Image */}   
         <div className="flex flex-col justify-center items-center text-center md:text-left">
           <img
             src="./src/assets/profile.jpg"
             alt="Profile"
-            className="w-40 h-40 md:w-48 md:h-48 rounded-full mb-6 border-4 border-teal-400 shadow-lg"
+            className="w-40 h-40 md:w-48 md:h-48  rounded-full mb-6 border-4 border-teal-400 shadow-lg"
           />
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-slideInRight">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-fadeIn">
             Basanta Khatri
           </h2>
           <p className="text-gray-300 text-lg md:text-xl mb-4 animate-slideInLeft delay-200">
@@ -33,7 +34,7 @@ const About = () => {
         </div>
 
         {/* Right Side: Timeline / Journey */}
-        <div className="flex flex-col justify-center space-y-8 text-white animate-fadeInRight">
+        <div className="flex flex-col justify-center space-y-8 text-white animate-fadeInUp">
           <h3 className="text-3xl md:text-4xl font-bold mb-4">My Journey</h3>
 
           {/* Timeline Item 1 */}
