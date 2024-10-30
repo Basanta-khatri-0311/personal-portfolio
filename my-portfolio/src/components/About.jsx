@@ -28,9 +28,11 @@ const About = () => {
             seamless, scalable user interfaces. My goal is to create impactful
             web solutions that deliver value.
           </p>
+          <a href="#contact">
           <button className="px-6 py-3 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-full shadow-lg hover:bg-opacity-80 hover:shadow-xl transform hover:scale-125 transition-transform duration-500 ease-in-out ">
             Get in Touch
           </button>
+          </a>
         </div>
 
         {/* Right Side: Timeline / Journey */}
