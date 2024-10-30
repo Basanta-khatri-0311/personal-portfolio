@@ -21,20 +21,18 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you can handle form submission logic (e.g., send data to an API)
-    console.log("Form submitted:", formData);
+    // console.log("Form submitted:", formData);
     // Clear form after submission
     setFormData({ name: "", email: "", message: "" });
+    alert("Form submitted:");
   };
 
   return (
     <section id="contact" className="w-screen h-screen bg-gradient-to-r from-gray-900 to-gray-800 text-white py-32 px-6 ">
       <div className="max-w-4xl mx-auto">
-        {/* Section Heading */}
         <h2 className="text-3xl font-bold text-center mb-8">Get in Touch</h2>
-
-        {/* Contact Form */}
+        
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name Field */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium">
               Your Name
@@ -51,7 +49,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Email Field */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium">
               Your Email
@@ -62,13 +59,12 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full p-3  text-black font-medium border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="johndoe@example.com"
               required
             />
           </div>
 
-          {/* Message Field */}
           <div>
             <label htmlFor="message" className="block text-sm font-medium">
               Your Message
@@ -79,7 +75,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               rows="4"
-              className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full p-3  text-black font-medium border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Write your message here..."
               required
             />
