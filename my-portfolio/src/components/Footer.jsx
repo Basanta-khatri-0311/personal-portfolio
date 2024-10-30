@@ -35,6 +35,13 @@ const Footer = () => {
             Instagram
           </a>
         </p>
+        <a
+          href="#"
+          className="fixed bottom-24 right-6 lg:right-10 lg:bottom-10 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-full p-1  shadow-lg hover:bg-opacity-80 hover:shadow-xl transform hover:scale-125 transition-transform duration-300 ease-in-out"
+          title="Go to Top"
+        >
+          <i className="ri-arrow-up-line text-4xl"></i>
+        </a>
       </div>
     </footer>
   );
