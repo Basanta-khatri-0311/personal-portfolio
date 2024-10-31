@@ -41,7 +41,7 @@ const About = () => {
           <div className="flex items-start space-x-4 px-5">
             <i className="ri-code-s-slash-line text-teal-400 text-3xl"></i>
             <div>
-              <h4 className="text-xl font-semibold">2020 - Started Coding</h4>
+              <h4 className="text-xl font-semibold">2021 - Started Coding</h4>
               <p className="text-gray-300 text-sm md:text-base">
                 I began my journey into coding, exploring HTML, CSS, and
                 JavaScript, and developed a strong foundation in frontend
@@ -54,9 +54,9 @@ const About = () => {
           <div className="flex items-start space-x-4 px-5">
             <i className="ri-macbook-line text-teal-400 text-3xl"></i>
             <div>
-              <h4 className="text-xl font-semibold">2021 - Built Projects</h4>
+              <h4 className="text-xl font-semibold">2023 - Built Projects</h4>
               <p className="text-gray-300 text-sm md:text-base">
-                Worked on multiple web projects, from simple websites to more
+                Worked on multiple web projects, landing pages, from simple websites to more
                 interactive applications. Gained experience in responsive design
                 and accessibility.
               </p>
@@ -67,7 +67,7 @@ const About = () => {
           <div className="flex items-start space-x-4 px-5">
             <i className="ri-reactjs-line text-teal-400 text-3xl"></i>
             <div>
-              <h4 className="text-xl font-semibold">2023 - React Enthusiast</h4>
+              <h4 className="text-xl font-semibold">2024 - React Enthusiast</h4>
               <p className="text-gray-300 text-sm md:text-base">
                 Deepened my knowledge of React and explored component-based
                 architectures to build more scalable and maintainable
