@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       <NavBar/>
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
       <Hero/>
       <About/>
       <Contact/>
