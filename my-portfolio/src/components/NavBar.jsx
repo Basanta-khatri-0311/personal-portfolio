@@ -12,17 +12,13 @@ const NavBar = () => {
     <nav className="fixed top-0 left-0 w-full bg-gray-800 p-4 shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo and Centered Navigation Links */}
-        <div className="flex items-center space-x-8">
           <Logo />
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex  justify-center space-x-20 mr-10">
             <NavLink href="#home">Home</NavLink>
             <NavLink href="#about">About</NavLink>
             <NavLink href="#projects">Projects</NavLink>
             <NavLink href="#contact">Contact</NavLink>
           </div>
-        </div>
-
-        {/* Dark/Light Mode Toggle */}
         
 
         {/* Mobile Menu Button */}
