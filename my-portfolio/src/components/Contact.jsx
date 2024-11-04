@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 const Contact = () => {
@@ -20,21 +21,20 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can handle form submission logic (e.g., send data to an API)
-    // console.log("Form submitted:", formData);
-    // Clear form after submission
     setFormData({ name: "", email: "", message: "" });
-    alert("Form submitted:");
+    alert("Thank you for reaching out!");
   };
 
   return (
-    <section id="contact" className="w-screen h-screen bg-gradient-to-r from-gray-900 to-gray-800 text-white py-32 px-6 ">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Get in Touch</h2>
-        
+    <section id="contact" className="w-screen min-h-screen  bg-gradient-to-br from-gray-800 to-gray-900 text-white md:py-8 py-16 px-6">
+      <div className="max-w-2xl w-full mx-auto bg-opacity-80 bg-white/10 backdrop-blur-md rounded-lg p-8 shadow-lg">
+        <h2 className="text-4xl font-bold text-center mb-8 text-white tracking-wide">
+          Get in Touch
+        </h2>
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium">
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-300">
               Your Name
             </label>
             <input
@@ -43,14 +43,14 @@ const Contact = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="mt-1 block w-full p-3 text-black font-medium border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-2 w-full px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-transparent focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition-all duration-300"
               placeholder="John Doe"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium">
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-300">
               Your Email
             </label>
             <input
@@ -59,14 +59,14 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="mt-1 block w-full p-3  text-black font-medium border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-2 w-full px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-transparent focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition-all duration-300"
               placeholder="johndoe@example.com"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium">
+            <label htmlFor="message" className="block text-sm font-semibold text-gray-300">
               Your Message
             </label>
             <textarea
@@ -75,7 +75,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               rows="4"
-              className="mt-1 block w-full p-3  text-black font-medium border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-2 w-full px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-transparent focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition-all duration-300"
               placeholder="Write your message here..."
               required
             />
@@ -85,34 +85,12 @@ const Contact = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-indigo-600 text-white font-bold py-2 px-4  rounded-lg shadow-lg hover:bg-indigo-700 hover:scale-110 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="w-full px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-md hover:bg-indigo-700 transform hover:scale-105 transition duration-300"
             >
               Send Message
             </button>
           </div>
         </form>
-
-        {/* Social Media Links */}
-        <div className="mt-8 flex justify-center space-x-4">
-          <a
-            href="https://github.com"
-            className="text-gray-400 hover:text-white"
-          >
-            <i className="fab fa-github fa-2x"></i>
-          </a>
-          <a
-            href="https://linkedin.com"
-            className="text-gray-400 hover:text-white"
-          >
-            <i className="fab fa-linkedin fa-2x"></i>
-          </a>
-          <a
-            href="https://twitter.com"
-            className="text-gray-400 hover:text-white"
-          >
-            <i className="fab fa-twitter fa-2x"></i>
-          </a>
-        </div>
       </div>
     </section>
   );

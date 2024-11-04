@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-padding-top: 60px;
+}
+
 html,
 body {
   background-color: #1f2937;
@@ -13,6 +17,8 @@ body {
   margin: 0;
   padding: 0;
 }
+
+
 
 @keyframes slideInLeft {
   0% {
