@@ -13,7 +13,7 @@ const NavBar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo and Centered Navigation Links */}
           <Logo />
-          <div className="hidden md:flex  justify-center space-x-20 mr-10">
+          <div className="hidden md:flex  justify-center space-x-20 mr-10 animate-slideInRight">
             <NavLink href="#home">Home</NavLink>
             <NavLink href="#about">About</NavLink>
             <NavLink href="#projects">Projects</NavLink>

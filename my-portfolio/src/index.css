@@ -26,7 +26,7 @@ body {
 }
 
 .animate-slideInLeft {
-  animation: slideInLeft 1s ease-in-out forwards; 
+  animation: slideInLeft  1s  ease-in-out forwards; 
 }
 
 @keyframes slideInRight {
@@ -70,4 +70,19 @@ body {
 
 .animate-fadeIn {
   animation: fadeIn 1s ease-in-out;
+}
+
+
+/* Looping subtle bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite ease-in-out;
 }

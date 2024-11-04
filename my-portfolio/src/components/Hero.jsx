@@ -10,7 +10,7 @@ const Hero = () => {
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white animate-slideInLeft ">
           Hi, I'm Basanta Khatri
         </h1>
-        <p className="text-base sm:text-lg md:text-2xl text-gray-300 mt-4 mb-8 animate-slideInRight ">
+        <p className="text-base sm:text-lg md:text-2xl text-gray-300 mt-4 mb-8 animate-bounce">
           A passionate Frontend Developer and Data Enthusiast
         </p>
         <a
