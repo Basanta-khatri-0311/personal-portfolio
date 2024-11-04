@@ -27,6 +27,14 @@ const Links = () => {
       >
         <i className="ri-instagram-line"></i>
       </a>
+      <a
+        href="https://www.instagram.com/basant_khatri__11/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-3xl text-white hover:bg-gradient-to-br from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 hover:scale-150 transition duration-300 p-2 rounded-full shadow-lg flex items-center justify-center"
+      >
+        <i class="ri-mail-line"></i>
+      </a>
     </section>
   );
 };

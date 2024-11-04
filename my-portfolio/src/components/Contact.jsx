@@ -26,13 +26,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-screen min-h-screen  bg-gradient-to-br from-gray-800 to-gray-900 text-white md:py-8 py-16 px-6">
+    <section id="contact" className="w-screen min-h-screen  bg-gradient-to-br from-gray-800 to-gray-900 text-white md:py-8 py-8 px-6">
       <div className="max-w-2xl w-full mx-auto bg-opacity-80 bg-white/10 backdrop-blur-md rounded-lg p-8 shadow-lg">
-        <h2 className="text-4xl font-bold text-center mb-8 text-white tracking-wide">
+        <h2 className="text-4xl font-bold text-center mb-8 text-white tracking-wide underline">
           Get in Touch
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form 
+        action="https://formspree.io/f/mkgnjaee"
+        method="POST"
+        // onSubmit={handleSubmit} 
+        className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-sm font-semibold text-gray-300">
               Your Name

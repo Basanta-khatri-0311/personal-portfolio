@@ -28,10 +28,10 @@ const Projects = () => {
     return (
         <section id="projects" className="w-screen min-h-screen bg-gray-900 text-white py-12 px-6">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12 text-indigo-500">
+            <h2 className="text-4xl font-bold text-center mb-12 text-indigo-500 underline">
               Projects
             </h2>
-            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {projectData.map((project, index) => (
                 <div
                   key={index}

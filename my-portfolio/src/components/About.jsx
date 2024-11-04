@@ -95,16 +95,16 @@ const About = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between">
         
         {/* Left Side: Profile Image */}
-        <div className="flex justify-center mb-10 md:mb-0 md:w-1/2">
+        <div className="flex justify-center items-center mb-10 md:mb-0 md:w-1/2 mt-9">
           <img
             src="./src/assets/profile.jpg"
             alt="Profile"
-            className="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-teal-400 shadow-lg transform transition-transform duration-300 hover:scale-110"
+            className="w-56 h-56 md:w-96 md:h-96 md:rounded-full rounded-lg border-4 border-teal-400 shadow-lg transform transition-transform duration-300 hover:scale-110"
           />
         </div>
 
         {/* Right Side: Profile Description */}
-        <div className="flex flex-col items-center md:items-start md:w-1/2 text-center md:text-left">
+        <div className="flex flex-col items-center md:items-start md:w-1/2 md:mr-16 text-center md:text-left">
           <h2 className="text-5xl font-bold text-white mb-4 animate-fadeIn">Hi, I'm Basanta Khatri</h2>
           <p className="text-lg md:text-xl text-gray-300 mb-4 animate-slideInLeft delay-200">
             A passionate Frontend Developer dedicated to crafting immersive web experiences.
@@ -123,7 +123,7 @@ const About = () => {
 
       {/* Journey Section */}
       <div className="mt-16 text-center w-full">
-        <h3 className="text-4xl font-bold text-white mb-4 animate-fadeIn">My Journey</h3>
+        <h3 className="text-4xl font-bold text-white mb-4 animate-fadeIn underline">My Journey</h3>
         <div className="flex flex-col items-center md:flex-row justify-center md:space-x-10">
           {timelineItems.map((item, index) => (
             <TimelineItem key={index} item={item} />
