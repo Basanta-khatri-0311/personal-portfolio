@@ -92,3 +92,29 @@ body {
 .animate-bounce {
   animation: bounce 2s infinite ease-in-out;
 }
+
+/* Add this CSS to your global stylesheet or a CSS module */
+.perspective {
+  perspective: 1000px;
+}
+
+.flip-card {
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
