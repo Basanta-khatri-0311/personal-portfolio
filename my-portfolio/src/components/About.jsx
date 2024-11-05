@@ -105,9 +105,9 @@ const About = () => {
 
         {/* Right Side: Profile Description */}
         <div className="flex flex-col items-center md:items-start md:w-1/2 md:mr-16 text-center md:text-left">
-          <h2 className="text-5xl font-bold text-white mb-4 animate-fadeIn">Hi, I'm Basanta Khatri</h2>
+          <h2 className="text-5xl font-bold text-white mb-4 animate-fadeIn animate-bounce">Basanta Khatri</h2>
           <p className="text-lg md:text-xl text-gray-300 mb-4 animate-slideInLeft delay-200">
-            A passionate Frontend Developer dedicated to crafting immersive web experiences.
+            Frontend Developer dedicated to crafting immersive web experiences.
           </p>
           <p className="text-lg md:text-xl text-gray-300 mb-6 animate-slideInLeft delay-400">
             Currently enhancing my skills in React and Tailwind CSS to build seamless and responsive applications.
