@@ -6,19 +6,19 @@ export const projectData = [
       title: "FootFashion",
       description: "A shoe website built with laravel and mySql.",
       link: "https://github.com/Basanta-khatri-0311/shoeshopmanagementsystem.git",
-      image: "./public/projectimages/footfashion.png", 
+      image: "/projectimages/footfashion.png", 
     },
     {
       title: "Voice Assistant",
       description: "Face Detection enabled voice assistant created using the python with eel for connecting python with HTML,CSS,JS.",
       link: "https://github.com/Basanta-khatri-0311/finalyearproject-voiceassistant.git",
-      image: "./public/projectimages/echo.png",  
+      image: "/projectimages/echo.png",  
     },
     {
       title: "Personal Portfolio",
       description: "Responsive Personal portfolio created using React and tailwindcss.",
       link: "https://github.com/Basanta-khatri-0311/personal-portfolio.git",
-      image: "./public/projectimages/portfolio.jpg",  
+      image: "/projectimages/portfolio.jpg",  
     },
   ];
   

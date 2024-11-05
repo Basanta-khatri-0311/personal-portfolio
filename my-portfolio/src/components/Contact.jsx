@@ -21,6 +21,7 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.target.reset();
     setFormData({ name: "", email: "", message: "" });
     alert("Thank you for reaching out!");
   };
@@ -35,7 +36,7 @@ const Contact = () => {
         <form 
         action="https://formspree.io/f/mkgnjaee"
         method="POST"
-        // onSubmit={handleSubmit} 
+        onSubmit={handleSubmit} 
         className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-sm font-semibold text-gray-300">

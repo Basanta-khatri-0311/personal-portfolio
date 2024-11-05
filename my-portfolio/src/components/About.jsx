@@ -12,7 +12,7 @@ const About = () => {
         {/* Left Side: Profile Image */}
         <div className="flex justify-center items-center mb-10 md:mb-0 md:w-1/2 mt-9">
           <img
-            src="./public/profile.jpg"
+            src="/profile.jpg" 
             alt="Profile"
             className="w-56 h-56 md:w-96 md:h-96 md:rounded-full rounded-lg border-4 border-teal-400 shadow-lg transform transition-transform duration-300 hover:scale-110"
           />
