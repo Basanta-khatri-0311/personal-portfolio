@@ -33,7 +33,7 @@ const Links = () => {
         rel="noopener noreferrer"
         className="text-3xl text-white hover:bg-gradient-to-br from-white to-red-600 hover:from-red-600 hover:to-white hover:scale-150 transition duration-300 p-2 rounded-full shadow-lg flex items-center justify-center"
       >
-        <i class="ri-mail-line"></i>
+        <i className="ri-mail-line"></i>
       </a>
     </section>
   );

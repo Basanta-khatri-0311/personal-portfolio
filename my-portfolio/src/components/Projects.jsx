@@ -34,7 +34,15 @@ export const projectData = [
       "Todo planner/Task planner created using React and tailwindcss with drag and drop functionality.",
     link: "https://github.com/Basanta-khatri-0311/kanban.git",
     image: "/projectimages/kanban.png",
-    live: "flowboard",
+    live: "https://flowboard-bk.netlify.app/",
+  },
+  {
+    title: "Random user and password generator",
+    description:
+      "A random password and username generator created uisng tailwindcss and react with some optimizations using hooks like usecallback useeffect usestate and useRef",
+    link: "https://github.com/Basanta-khatri-0311/reactlearning/tree/main/05passwordGenerator",
+    image:"/projectimages/randomgenerator.png",
+    live:"https://random-generator-bk.netlify.app/"
   },
 ];
 
