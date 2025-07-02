@@ -1,27 +1,31 @@
-import React from "react"
-import NavBar from "./components/NavBar"
-import Hero from "./components/Hero"
-import SocialLinks from "./components/SocialLinks"
-import About from "./components/About"
-import ThemeToggle from "./components/ThemeToggle"
-import Projects from "./components/Projects"
-import Contact from "./components/Contact"
-import Footer from "./components/Footer"
+import React, { Suspense, lazy } from "react";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import Loading from "./components/Loading"; // Import the new Loading component
+
+// Lazy-loaded components
+const Hero = lazy(() => import("./components/Hero"));
+const About = lazy(() => import("./components/About"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
+const SocialLinks = lazy(() => import("./components/SocialLinks"));
 
 function App() {
-
   return (
-    <div>
-      <NavBar/>
-      <ThemeToggle />
-      <Hero/>
-      <About/>
-      <Projects/>
-      <Contact/>
-      <SocialLinks/>
-      <Footer/>
+    <div className="min-h-screen flex flex-col">
+      <NavBar />
+      <Suspense fallback={<Loading />}>
+        {" "}
+        {/* Use Loading component here */}
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+        <SocialLinks />
+      </Suspense>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
