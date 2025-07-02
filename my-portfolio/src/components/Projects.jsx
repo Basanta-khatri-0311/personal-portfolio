@@ -9,16 +9,14 @@ export const projectData = [
     image: "/projectimages/portfolio.jpg",
     live: "",
   },
-
   {
-    title: "Active scroll",
+    title: "DharmaVerse",
     description:
-      "A dynamic and interactive card scrolling effect created using plain html css and js",
-    link: "https://github.com/Basanta-khatri-0311/activescroll.git",
-    image: "/projectimages/scroll.png",
-    live: "https://scrolltask-bk.netlify.app/",
+      "A serene and elegant web app that showcases spiritual verses from the Bhagavad Gita and other texts. Built with React and Tailwind CSS, it features search, filtering, favorite saving with local storage, dark mode, and a daily inspirational verse.",
+    link: "https://github.com/Basanta-khatri-0311/dharmaverse",
+    image: "/projectimages/dharmaverse.png",
+    live: "https://dharmaverse-bk.netlify.app/",
   },
-
   {
     title: "CareerOrbit",
     description:
@@ -37,12 +35,21 @@ export const projectData = [
     live: "https://flowboard-bk.netlify.app/",
   },
   {
+    title: "Active scroll",
+    description:
+      "A dynamic and interactive card scrolling effect created using plain html css and js",
+    link: "https://github.com/Basanta-khatri-0311/activescroll.git",
+    image: "/projectimages/scroll.png",
+    live: "https://scrolltask-bk.netlify.app/",
+  },
+
+  {
     title: "Random user and password generator",
     description:
       "A random password and username generator created uisng tailwindcss and react with some optimizations using hooks like usecallback useeffect usestate and useRef",
     link: "https://github.com/Basanta-khatri-0311/reactlearning/tree/main/05passwordGenerator",
-    image:"/projectimages/randomgenerator.png",
-    live:"https://random-generator-bk.netlify.app/"
+    image: "/projectimages/randomgenerator.png",
+    live: "https://random-generator-bk.netlify.app/",
   },
 ];
 
