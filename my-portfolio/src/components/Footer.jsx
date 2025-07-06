@@ -35,7 +35,7 @@ const Footer = () => {
             className="hover:text-white transition duration-300 mx-2"
             aria-label="Instagram"
           >
-            Instagram
+            Instagram 
           </a>
         </p>
       </div>
