@@ -2,14 +2,6 @@ import React from "react";
 
 export const projectData = [
   {
-    title: "Personal Portfolio",
-    description:
-      "Responsive Personal portfolio created using React and tailwindcss.",
-    link: "https://github.com/Basanta-khatri-0311/personal-portfolio.git",
-    image: "/projectimages/portfolio.jpg",
-    live: "",
-  },
-  {
     title: "DharmaVerse",
     description:
       "A serene and elegant web app that showcases spiritual verses from the Bhagavad Gita and other texts. Built with React and Tailwind CSS, it features search, filtering, favorite saving with local storage, dark mode, and a daily inspirational verse.",
@@ -18,9 +10,33 @@ export const projectData = [
     live: "https://dharmaverse-bk.netlify.app/",
   },
   {
+    title: "SEO MetaTagLab",
+    description:
+      "A simple and effective SEO meta tag generator tool built with React to help create optimized meta tags for websites quickly.",
+    link: "https://github.com/Basanta-khatri-0311/seo-meta-generator",
+    image: "/projectimages/metataglab.png",
+    live: "https://taglab-bk.netlify.app/",
+  },
+  {
+    title: "ApplyFlow",
+    description:
+      "Responsive Personal job apply tracker created using React and tailwindcss having the local storage feature and statistics about the jobs applyed.",
+    link: "https://github.com/Basanta-khatri-0311/CareerTrackr",
+    image: "/projectimages/applyflow.png",
+    live: "https://applyflow-bk.netlify.app/",
+  },
+  {
+    title: "Personal Portfolio",
+    description:
+      "Responsive Personal portfolio created using React and tailwindcss.",
+    link: "https://github.com/Basanta-khatri-0311/personal-portfolio.git",
+    image: "/projectimages/portfolio.jpg",
+    live: "https://basanta-khatri.netlify.app/",
+  },
+  {
     title: "CareerOrbit",
     description:
-      "A jod opening website opened using react and tailwind as a frontend task.",
+      "A job opening website opened using react and tailwind as a frontend task with local storage for add to favourites feature.",
     link: "https://github.com/Basanta-khatri-0311/CareerOrbit.git",
     image: "/projectimages/careerorbit.png",
     live: "https://careerorbit-bk.netlify.app/",
@@ -59,11 +75,11 @@ const Projects = () => {
       id="projects"
       className="w-screen min-h-screen bg-gray-900 text-white py-12 px-6"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-indigo-500 underline">
           Projects
         </h2>
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {projectData.map((project, index) => (
             <div key={index} className="relative w-full h-80 perspective">
               <div className="relative w-full h-full transform-style-preserve flip-card duration-700">
