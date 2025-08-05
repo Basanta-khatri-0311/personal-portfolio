@@ -22,7 +22,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      await fetch("https://basanta107.app.n8n.cloud/webhook-test/form-submit", {
+      await fetch("https://basanta107.app.n8n.cloud/webhook/form-submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
