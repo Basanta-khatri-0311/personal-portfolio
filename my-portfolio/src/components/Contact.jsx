@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 const Contact = () => {
@@ -19,27 +18,42 @@ const Contact = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    e.target.reset();
-    setFormData({ name: "", email: "", message: "" });
-    alert("Thank you for reaching out!");
+
+    try {
+      await fetch("https://basanta107.app.n8n.cloud/webhook-test/form-submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      alert("Thank you for reaching out!");
+      e.target.reset();
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Submission failed:", error);
+      alert("Oops! Something went wrong.");
+    }
   };
 
   return (
-    <section id="contact" className="w-screen min-h-screen  bg-gradient-to-br from-gray-800 to-gray-900 text-white md:py-8 py-8 px-6">
+    <section
+      id="contact"
+      className="w-screen min-h-screen  bg-gradient-to-br from-gray-800 to-gray-900 text-white md:py-8 py-8 px-6"
+    >
       <div className="max-w-2xl w-full mx-auto bg-opacity-80 bg-white/10 backdrop-blur-md rounded-lg p-8 shadow-lg">
         <h2 className="text-4xl font-bold text-center mb-8 text-white tracking-wide underline">
           Get in Touch
         </h2>
 
-        <form 
-        action="https://formspree.io/f/mkgnjaee"
-        method="POST"
-        onSubmit={handleSubmit} 
-        className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-semibold text-gray-300">
+            <label
+              htmlFor="name"
+              className="block text-sm font-semibold text-gray-300"
+            >
               Your Name
             </label>
             <input
@@ -55,7 +69,10 @@ const Contact = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold text-gray-300">
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold text-gray-300"
+            >
               Your Email
             </label>
             <input
@@ -71,7 +88,10 @@ const Contact = () => {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-semibold text-gray-300">
+            <label
+              htmlFor="message"
+              className="block text-sm font-semibold text-gray-300"
+            >
               Your Message
             </label>
             <textarea
