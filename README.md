@@ -1,32 +1,8 @@
-# 🎨 Basanta Khatri - Personal Portfolio
+# React + Vite
 
-Welcome to the repository for my **personal portfolio website** built using **React** and **Tailwind CSS**.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Live Demo
-Check out the live version of my portfolio [here](#).
+Currently, two official plugins are available:
 
-## 🛠️ Tech Stack
-- **Frontend**: React
-- **Styling**: Tailwind CSS
-- **Version Control**: Git & GitHub
-
-## 📑 About
-This portfolio website showcases:
-- **My Projects**: An overview of the projects I've worked on.
-- **Skills**: My tech skills and tools I’m proficient in.
-- **Experience**: Professional experience and education.
-- **Contact**: Ways to get in touch with me.
-
-## 🎯 Features
-- Fully responsive design
-- Smooth navigation and clean UI
-- Easy to update content via React components
-
-## 🖼️ Screenshots
-Here’s a preview of what the portfolio looks like:
-
-<img src="screenshot.png" alt="Portfolio Screenshot" width="600"/>
-
-## 📧 Contact
-If you’d like to connect, reach out to me at:  
-[Email](mailto:khatribasanta.works09@gmail.com) | [LinkedIn](https://www.linkedin.com/in/basanta-khatri-941390238/)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
