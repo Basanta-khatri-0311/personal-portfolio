@@ -1,5 +1,9 @@
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       animation: {
@@ -23,27 +27,7 @@ module.exports = {
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
-      backdropBlur: {
-        xs: '2px',
-      },
     },
   },
-  plugins: [
-    function({ addUtilities }) {
-      addUtilities({
-        '.line-clamp-3': {
-          display: '-webkit-box',
-          '-webkit-line-clamp': '3',
-          '-webkit-box-orient': 'vertical',
-          'overflow': 'hidden',
-        },
-        '.animation-delay-2000': {
-          'animation-delay': '2s',
-        },
-        '.animation-delay-4000': {
-          'animation-delay': '4s',
-        },
-      })
-    }
-  ],
+  plugins: [],
 }
