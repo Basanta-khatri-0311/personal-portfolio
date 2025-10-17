@@ -21,7 +21,7 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
             <span className="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Basanta Khatri
+              Basant Khatri
             </span>
           </h1>
 
