@@ -128,7 +128,7 @@ const NavBar = () => {
         />
 
         {/* Menu Panel */}
-        <div className={`absolute right-0 top-10 h-full w-full bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 backdrop-blur-3xl transition-transform duration-400 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+        <div className={`absolute right-0 top-10 h-[100%] w-full bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 backdrop-blur-3xl transition-transform duration-400 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
           <div className="flex flex-col items-center justify-center h-full space-y-4 p-6">
 
