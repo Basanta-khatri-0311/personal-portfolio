@@ -51,7 +51,7 @@ const About = () => {
             <div className="space-y-3 md:space-y-4">
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/10">
                 I'm a frontend developer passionate about building fast, accessible, and user-friendly 
-                web applications. With over 2 years of experience, I specialize in React and modern 
+                web applications. With over 1 years of experience, I specialize in React and modern 
                 CSS frameworks.
               </p>
               
