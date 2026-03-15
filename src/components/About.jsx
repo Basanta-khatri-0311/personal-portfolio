@@ -1,94 +1,133 @@
-import React from 'react';
+import React, { useEffect, useRef } from "react";
 
-const About = () => {
-  const skills = [
-    { name: 'React', level: 90, icon: 'ri-reactjs-line' },
-    { name: 'JavaScript', level: 85, icon: 'ri-javascript-line' },
-    { name: 'Tailwind CSS', level: 88, icon: 'ri-tailwind-css-line' },
-    { name: 'HTML/CSS', level: 92, icon: 'ri-html5-line' },
-    { name: 'Git', level: 80, icon: 'ri-git-branch-line' },
-    { name: 'Responsive Design', level: 90, icon: 'ri-layout-line' },
-  ];
+// Simple tech tag list — no bars, no percentages, no heavy cards
+const STACK = [
+  "React", "JavaScript", "Tailwind CSS",
+  "HTML", "CSS", "Git",
+  "Responsive Design", "REST APIs", "Figma",
+];
+
+function useReveal(ref, delay = 0) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach(
+              (el, i) => setTimeout(() => el.classList.add("visible"), i * 100)
+            );
+          }, delay);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [ref, delay]);
+}
+
+export default function About() {
+  const ref = useRef(null);
+  useReveal(ref);
 
   return (
-    <section id="about" className="py-12 md:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 right-4 md:right-1/4 w-48 h-48 md:w-64 md:h-64 bg-teal-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-4 md:left-1/4 w-56 h-56 md:w-72 md:h-72 bg-purple-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="about" className="py-24 md:py-36 bg-[#08080f] relative overflow-hidden">
+      {/* Faint right-side ambient */}
+      <div
+        className="orb absolute -right-32 top-0 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "rgba(37,99,235,0.05)" }}
+        aria-hidden="true"
+      />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
-            About <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Me</span>
+      <div ref={ref} className="max-w-6xl mx-auto px-6">
+
+        {/* ── Section header ── */}
+        <div className="reveal mb-14">
+          <p className="section-label mb-4">About me</p>
+          <h2
+            className="font-extrabold text-white leading-tight"
+            style={{ fontSize: "clamp(32px, 5vw, 56px)" }}
+          >
+            A bit about{" "}
+            <span className="text-gradient">who I am</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-2">
-            Passionate developer with a focus on creating exceptional digital experiences
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Image */}
-          <div className="flex justify-center order-2 lg:order-1">
-            <div className="relative">
-              <img
-                src="/profile.jpg"
-                alt="Basanta Khatri - Frontend Developer"
-                width={300}
-                height={300}
-                className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-xl md:rounded-2xl shadow-2xl border-4 border-teal-400/20 object-cover"
-              />
-              <div className="absolute -inset-3 md:-inset-4 bg-gradient-to-r from-teal-400 to-blue-500 rounded-xl md:rounded-2xl opacity-20 blur-xl -z-10"></div>
+        {/* ── Content grid: 60 / 40 ── */}
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-start">
+
+          {/* Left — Bio text (3 cols) */}
+          <div className="lg:col-span-3 space-y-5">
+            <p className="reveal text-slate-300 text-base md:text-lg leading-relaxed">
+              I'm Basanta — a self-taught frontend developer based in Nepal with a genuine
+              passion for building things on the web. Over the past year, I've worked on
+              projects ranging from spiritual reading apps to productivity tools,
+              always focusing on clean code and polished user experiences.
+            </p>
+            <p className="reveal text-slate-400 text-base leading-relaxed">
+              I believe good design and good code go hand in hand. I care deeply about
+              accessibility, performance and the little interactions that make an interface
+              feel alive. When I'm not coding, I explore design systems or contribute to
+              open source.
+            </p>
+
+            {/* Quick facts row */}
+            <div className="reveal grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+              {[
+                { icon: "ri-map-pin-2-line", text: "Nepal" },
+                { icon: "ri-time-line", text: "1+ yr Experience" },
+                { icon: "ri-graduation-cap-line", text: "Self-taught" },
+                { icon: "ri-code-s-slash-line", text: "5+ Projects" },
+                { icon: "ri-heart-line", text: "Open to Work" },
+                { icon: "ri-translate-2", text: "English / Nepali/ Hindi" },
+              ].map((f) => (
+                <div key={f.text} className="flex items-center gap-2">
+                  <i className={`${f.icon} text-blue-400 text-sm shrink-0`} />
+                  <span className="text-slate-400 text-sm">{f.text}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Content */}
-          <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center lg:text-left">Crafting digital experiences that matter</h3>
-            
-            <div className="space-y-3 md:space-y-4">
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/10">
-                I'm a frontend developer passionate about building fast, accessible, and user-friendly 
-                web applications. With over 1 years of experience, I specialize in React and modern 
-                CSS frameworks.
-              </p>
-              
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-white-10">
-                I believe in writing clean, maintainable code and creating interfaces that not only 
-                look great but also provide exceptional user experiences across all devices.
-              </p>
+          {/* Right — Tech stack tags (2 cols) */}
+          <div className="lg:col-span-2 reveal-right">
+            <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-5">
+              Tech I work with
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {STACK.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1.5 text-sm font-medium rounded-lg border text-slate-300 hover:text-blue-300 hover:border-blue-500/30 transition-colors duration-200 cursor-default"
+                  style={{
+                    background: "rgba(255,255,255,0.03)",
+                    borderColor: "rgba(255,255,255,0.08)",
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
 
-            {/* Skills */}
-            <div className="space-y-3 md:space-y-4">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-white text-center lg:text-left">Skills & Technologies</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                {skills.map((skill, index) => (
-                  <div key={skill.name} className="bg-white/5 rounded-xl md:rounded-2xl p-3 md:p-4 border border-white/10 hover:border-teal-400/30 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <i className={`${skill.icon} text-teal-400 text-sm md:text-base`}></i>
-                        <span className="text-white font-medium text-sm md:text-base">{skill.name}</span>
-                      </div>
-                      <span className="text-xs md:text-sm text-gray-400">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-1.5 md:h-2">
-                      <div 
-                        className="bg-gradient-to-r from-teal-400 to-blue-500 h-1.5 md:h-2 rounded-full transition-all duration-1000"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* Currently learning */}
+            <div
+              className="mt-8 p-4 rounded-2xl border"
+              style={{
+                background: "rgba(59,130,246,0.05)",
+                borderColor: "rgba(59,130,246,0.15)",
+              }}
+            >
+              <p className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-1">
+                Currently Learning
+              </p>
+              <p className="text-slate-300 text-sm">
+                TypeScript · Next.js · Node.js
+              </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

@@ -1,179 +1,307 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+// ─────────────────────────────────────────────────────────────────
+// 🔑  Replace these three values with your own from emailjs.com
+// ─────────────────────────────────────────────────────────────────
+const EMAILJS_SERVICE_ID  = "service_khiv61m";   // e.g. "service_abc123"
+const EMAILJS_TEMPLATE_ID = "template_9cuwd5z";  // e.g. "template_xyz789"
+const EMAILJS_PUBLIC_KEY  = "Jn0T_AcEBOlrgmt0U";   // e.g. "abcDEF123xyz"
+// ─────────────────────────────────────────────────────────────────
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+const METHODS = [
+  {
+    icon: "ri-mail-send-line",
+    label: "Email",
+    value: "khatribasanta.works09@gmail.com",
+    href: "mailto:khatribasanta.works09@gmail.com",
+  },
+  {
+    icon: "ri-linkedin-fill",
+    label: "LinkedIn",
+    value: "linkedin.com/in/basanta-khatri",
+    href: "https://linkedin.com/in/basanta-khatri",
+  },
+  {
+    icon: "ri-github-fill",
+    label: "GitHub",
+    value: "Basanta-khatri-0311",
+    href: "https://github.com/Basanta-khatri-0311",
+  },
+];
+
+function useReveal(ref) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach(
+            (el, i) => setTimeout(() => el.classList.add("visible"), i * 100)
+          );
+        }
+      },
+      { threshold: 0.08 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [ref]);
+}
+
+export default function Contact() {
+  const formRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("idle"); // idle | sending | done | error
+
+  useReveal(sectionRef);
+
+  const handleChange = (e) =>
+    setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    emailjs
+      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      })
+      .then(() => {
+        setStatus("done");
+        setForm({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 6000);
+      })
+      .catch((err) => {
+        console.error("EmailJS error:", err);
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 6000);
+      });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Thank you for your message! I\'ll get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
+  const inputClass =
+    "w-full px-4 py-3 rounded-xl text-white text-sm font-medium placeholder-slate-600 focus:outline-none transition-all duration-200";
+  const inputStyle = {
+    background: "#111120",
+    border: "1px solid rgba(255,255,255,0.07)",
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-64 md:h-64 bg-purple-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-56 h-56 md:w-72 md:h-72 bg-blue-500 rounded-full blur-3xl"></div>
-      </div>
+    <section id="contact" className="py-24 md:py-36 bg-[#08080f] relative overflow-hidden">
+      {/* Ambient orb */}
+      <div
+        className="orb absolute -right-20 top-0 w-[480px] h-[480px] pointer-events-none"
+        style={{ background: "rgba(37,99,235,0.06)" }}
+        aria-hidden="true"
+      />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-              Get In <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Touch</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Ready to start your next project? Let's talk!
-            </p>
+      <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
+
+        {/* ── Header ── */}
+        <div className="reveal mb-14">
+          <p className="section-label mb-4">Get in touch</p>
+          <h2
+            className="font-extrabold text-white leading-tight"
+            style={{ fontSize: "clamp(32px, 5vw, 56px)" }}
+          >
+            Let's build something{" "}
+            <span className="text-gradient">great</span>
+          </h2>
+          <p className="text-slate-400 text-base mt-3 max-w-lg">
+            Whether you have a project in mind, want to collaborate, or just want
+            to say hello — I'd love to hear from you.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+
+          {/* ── Left — Info ── */}
+          <div className="lg:col-span-2 space-y-4 reveal-left">
+            {METHODS.map((m) => (
+              <a
+                key={m.label}
+                href={m.href}
+                target={m.href.startsWith("http") ? "_blank" : "_self"}
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-4 rounded-2xl border transition-all duration-250"
+                style={{
+                  background: "rgba(255,255,255,0.025)",
+                  borderColor: "rgba(255,255,255,0.07)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)";
+                  e.currentTarget.style.background = "rgba(59,130,246,0.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.025)";
+                }}
+              >
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(59,130,246,0.1)" }}
+                >
+                  <i className={`${m.icon} text-blue-400 text-lg`} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-0.5">
+                    {m.label}
+                  </p>
+                  <p className="text-slate-200 text-sm font-medium truncate group-hover:text-blue-300 transition-colors">
+                    {m.value}
+                  </p>
+                </div>
+                <i className="ri-arrow-right-up-line text-slate-500 group-hover:text-blue-400 ml-auto shrink-0 transition-colors" />
+              </a>
+            ))}
+
+            {/* Availability */}
+            <div
+              className="p-4 rounded-2xl border mt-2"
+              style={{
+                background: "rgba(34,197,94,0.04)",
+                borderColor: "rgba(34,197,94,0.15)",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-emerald-400 text-xs font-bold uppercase tracking-wide">
+                  Currently Available
+                </span>
+              </div>
+              <p className="text-slate-400 text-sm">
+                Open to freelance, contract & full-time roles.
+              </p>
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
-            {/* Contact Info */}
-            <div className="space-y-6 md:space-y-8">
-              <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6 text-center lg:text-left">Let's Connect</h3>
-                <p className="text-gray-300 leading-relaxed text-center lg:text-left bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/10">
-                  I'm always interested in new opportunities, whether it's a freelance project, 
-                  collaboration, or just a friendly chat about web development.
-                </p>
-              </div>
-
-              {/* Contact Methods */}
-              <div className="space-y-3 md:space-y-4">
-                {[
-                  { 
-                    icon: 'ri-mail-line', 
-                    label: 'Email', 
-                    value: 'khatribasanta.works09@gmail.com', 
-                    href: 'mailto:khatribasanta.works09@gmail.com' 
-                  },
-                  { 
-                    icon: 'ri-linkedin-fill', 
-                    label: 'LinkedIn', 
-                    value: 'Basanta Khatri', 
-                    href: 'https://linkedin.com/in/basanta-khatri' 
-                  },
-                  { 
-                    icon: 'ri-github-fill', 
-                    label: 'GitHub', 
-                    value: 'Basanta-khatri-0311', 
-                    href: 'https://github.com/Basanta-khatri-0311' 
-                  }
-                ].map((contact, index) => (
-                  <a 
-                    key={contact.label}
-                    href={contact.href}
-                    target={contact.href.startsWith('http') ? '_blank' : '_self'}
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 md:gap-4 text-gray-300 hover:text-teal-400 transition-colors group bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-3 md:p-4 border border-white/10 hover:border-teal-400/30 w-full"
-                  >
-                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-teal-400/10 rounded-lg flex items-center justify-center group-hover:bg-teal-400/20 transition-colors">
-                      <i className={`${contact.icon} text-teal-400 text-lg md:text-xl`}></i>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-semibold text-sm md:text-base">{contact.label}</div>
-                      <div className="text-xs md:text-sm text-gray-400 truncate">{contact.value}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/10">
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+          {/* ── Right — Form ── */}
+          <div className="lg:col-span-3 reveal-right">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="rounded-2xl p-6 md:p-8 space-y-5 border"
+              style={{
+                background: "rgba(255,255,255,0.018)",
+                borderColor: "rgba(255,255,255,0.06)",
+              }}
+            >
+              {/* Name + Email */}
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="msg-name"
+                    className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2"
+                  >
                     Your Name
                   </label>
                   <input
+                    id="msg-name"
                     type="text"
-                    id="name"
                     name="name"
-                    value={formData.name}
+                    value={form.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 outline-none transition-colors text-sm md:text-base"
                     placeholder="John Doe"
+                    className={inputClass}
+                    style={inputStyle}
                   />
                 </div>
-
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="msg-email"
+                    className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2"
+                  >
                     Your Email
                   </label>
                   <input
+                    id="msg-email"
                     type="email"
-                    id="email"
                     name="email"
-                    value={formData.email}
+                    value={form.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 outline-none transition-colors text-sm md:text-base"
                     placeholder="john@example.com"
+                    className={inputClass}
+                    style={inputStyle}
                   />
                 </div>
+              </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows="4"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 outline-none transition-colors resize-none text-sm md:text-base"
-                    placeholder="Hello, I'd like to talk about..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-teal-500 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
+              {/* Message */}
+              <div>
+                <label
+                  htmlFor="msg-message"
+                  className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <i className="ri-send-plane-line"></i>
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
+                  Message
+                </label>
+                <textarea
+                  id="msg-message"
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  rows={6}
+                  placeholder="Tell me about your project or idea..."
+                  className={`${inputClass} resize-none`}
+                  style={inputStyle}
+                />
+              </div>
+
+              {/* Status messages */}
+              {status === "done" && (
+                <div
+                  className="flex items-center gap-2.5 p-3.5 rounded-xl text-sm"
+                  style={{
+                    background: "rgba(34,197,94,0.08)",
+                    border: "1px solid rgba(34,197,94,0.2)",
+                  }}
+                >
+                  <i className="ri-checkbox-circle-fill text-emerald-400" />
+                  <span className="text-emerald-300 font-medium">
+                    Message sent! I'll get back to you soon.
+                  </span>
+                </div>
+              )}
+              {status === "error" && (
+                <div
+                  className="flex items-center gap-2.5 p-3.5 rounded-xl text-sm"
+                  style={{
+                    background: "rgba(239,68,68,0.08)",
+                    border: "1px solid rgba(239,68,68,0.2)",
+                  }}
+                >
+                  <i className="ri-error-warning-fill text-red-400" />
+                  <span className="text-red-300 font-medium">
+                    Something went wrong. Please try emailing me directly.
+                  </span>
+                </div>
+              )}
+
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="btn-primary w-full justify-center py-3.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === "sending" ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <i className="ri-send-plane-line" />
+                  </>
+                )}
+              </button>
+            </form>
           </div>
+
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

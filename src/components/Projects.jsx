@@ -1,134 +1,253 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "DharmaVerse",
-      description: "Spiritual verses web app with search, filtering, and dark mode",
-      image: "/projectimages/dharmaverse.png",
-      live: "https://dharmaverse-bk.netlify.app/",
-      code: "https://github.com/Basanta-khatri-0311/dharmaverse",
-      tags: ["React", "Tailwind", "LocalStorage"]
-    },
-    {
-      title: "SEO MetaTagLab",
-      description: "SEO meta tag generator tool for website optimization",
-      image: "/projectimages/metataglab.png",
-      live: "https://taglab-bk.netlify.app/",
-      code: "https://github.com/Basanta-khatri-0311/seo-meta-generator",
-      tags: ["React", "SEO", "Tools"]
-    },
-    {
-      title: "ApplyFlow",
-      description: "Job application tracker with statistics and local storage",
-      image: "/projectimages/applyflow.png",
-      live: "https://applyflow-bk.netlify.app/",
-      code: "https://github.com/Basanta-khatri-0311/CareerTrackr",
-      tags: ["React", "Tailwind", "Tracking"]
-    }
-  ];
+const PROJECTS = [
+  {
+    id: "01",
+    title: "DharmaVerse",
+    category: "Web App",
+    year: "2024",
+    description:
+      "A spiritual verses reading app featuring full-text search, category filtering, dark mode and bookmarking — all without a backend.",
+    image: "/projectimages/dharmaverse.png",
+    tags: ["React", "Tailwind CSS", "LocalStorage"],
+    live: "https://dharmaverse-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/dharmaverse",
+  },
+  {
+    id: "02",
+    title: "SEO MetaTagLab",
+    category: "Developer Tool",
+    year: "2024",
+    description:
+      "A meta tag generator with live browser preview, Open Graph and Twitter Card support, and one-click clipboard copy.",
+    image: "/projectimages/metataglab.png",
+    tags: ["React", "SEO", "Tools"],
+    live: "https://taglab-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/seo-meta-generator",
+  },
+  {
+    id: "03",
+    title: "ApplyFlow",
+    category: "Productivity",
+    year: "2024",
+    description:
+      "A job application tracker with Kanban-style status columns, analytics dashboard and fully persistent local storage.",
+    image: "/projectimages/applyflow.png",
+    tags: ["React", "Data Viz", "Tailwind CSS"],
+    live: "https://applyflow-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/CareerTrackr",
+  },
+];
+
+function ProjectRow({ project, index }) {
+  const [hovered, setHovered] = useState(false);
+  const [mouseY, setMouseY] = useState(0);
+  const rowRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!rowRef.current) return;
+    const rect = rowRef.current.getBoundingClientRect();
+    setMouseY(e.clientY - rect.top);
+  };
 
   return (
-    <section id="projects" className="py-12 md:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/3 left-4 md:left-10 w-48 h-48 md:w-64 md:h-64 bg-blue-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-4 md:right-10 w-56 h-56 md:w-72 md:h-72 bg-teal-500 rounded-full blur-3xl"></div>
-      </div>
+    <div
+      ref={rowRef}
+      className="reveal group relative"
+      style={{ transitionDelay: `${index * 80}ms` }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onMouseMove={handleMouseMove}
+    >
+      {/* Hover background fill */}
+      <div
+        className="absolute inset-0 rounded-2xl transition-opacity duration-300 pointer-events-none"
+        style={{
+          background: "rgba(59,130,246,0.04)",
+          opacity: hovered ? 1 : 0,
+        }}
+      />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
-            Featured <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Projects</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-2">
-            A selection of my recent work showcasing modern web development
-          </p>
+      {/* Main row content */}
+      <div
+        className="relative flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8 p-6 rounded-2xl border transition-colors duration-300"
+        style={{
+          borderColor: hovered ? "rgba(59,130,246,0.2)" : "rgba(255,255,255,0.06)",
+        }}
+      >
+        {/* Left: Number + Category */}
+        <div className="flex items-center gap-4 shrink-0 lg:w-32">
+          <span
+            className="text-3xl font-black leading-none transition-colors duration-300"
+            style={{ color: hovered ? "rgba(59,130,246,0.9)" : "rgba(255,255,255,0.08)" }}
+          >
+            {project.id}
+          </span>
+          <div className="lg:hidden">
+            <p className="text-xs font-bold text-blue-400 uppercase tracking-widest">
+              {project.category}
+            </p>
+            <p className="text-slate-600 text-xs">{project.year}</p>
+          </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <div 
-              key={project.title}
-              className="group bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl overflow-hidden border border-white/10 hover:border-teal-400/30 transition-all duration-500 hover:transform hover:-translate-y-1 md:hover:-translate-y-2"
+        {/* Center: Title + Description */}
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-baseline gap-3 mb-2">
+            <h3
+              className="text-white font-bold text-xl transition-colors duration-200"
+              style={{ color: hovered ? "#60a5fa" : "#f1f5f9" }}
             >
-              {/* Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={`${project.title} - Project screenshot`}
-                  width={400}
-                  height={250}
-                  className="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-
-              {/* Content */}
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 md:mb-3 group-hover:text-teal-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-                  {project.tags.map(tag => (
-                    <span 
-                      key={tag}
-                      className="px-2 py-1 bg-teal-400/10 text-teal-400 text-xs md:text-sm rounded-full border border-teal-400/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-2 md:gap-4">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-teal-500 to-blue-600 text-white text-center py-2 px-3 md:py-2 md:px-4 rounded-lg font-medium text-xs md:text-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1 md:gap-2"
-                  >
-                    <i className="ri-external-link-line text-xs md:text-sm"></i>
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.code}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 border border-white/20 text-gray-300 text-center py-2 px-3 md:py-2 md:px-4 rounded-lg font-medium text-xs md:text-sm hover:border-teal-400 hover:text-teal-400 transition-colors flex items-center justify-center gap-1 md:gap-2"
-                  >
-                    <i className="ri-github-fill text-xs md:text-sm"></i>
-                    Code
-                  </a>
-                </div>
-              </div>
+              {project.title}
+            </h3>
+            <div className="hidden lg:flex items-center gap-2">
+              <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest">
+                {project.category}
+              </span>
+              <span className="text-slate-400 text-xs">· {project.year}</span>
             </div>
-          ))}
+          </div>
+          <p className="text-slate-400 text-sm leading-relaxed mb-4">
+            {project.description}
+          </p>
+          {/* Tech tags */}
+          <div className="flex flex-wrap gap-1.5">
+            {project.tags.map((t) => (
+              <span
+                key={t}
+                className="px-2.5 py-1 text-[11px] font-semibold rounded-lg"
+                style={{
+                  background: "rgba(59,130,246,0.08)",
+                  border: "1px solid rgba(59,130,246,0.15)",
+                  color: "#93c5fd",
+                }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* View More */}
-        <div className="text-center mt-8 md:mt-12">
+        {/* Right: Image preview + Links */}
+        <div className="flex flex-col items-start lg:items-end gap-4 shrink-0 lg:w-72">
+          {/* Image preview */}
+          <div
+            className="w-full lg:w-64 h-36 rounded-xl overflow-hidden border transition-all duration-500"
+            style={{
+              borderColor: "rgba(255,255,255,0.07)",
+              transform: hovered ? "scale(1.02)" : "scale(1)",
+            }}
+          >
+            <img
+              src={project.image}
+              alt={`${project.title} – preview`}
+              className="w-full h-full object-cover transition-transform duration-500"
+              style={{ transform: hovered ? "scale(1.06)" : "scale(1)" }}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          {/* CTA links */}
+          <div className="flex gap-2.5">
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-white text-xs font-bold transition-all duration-200"
+              style={{
+                background: "linear-gradient(135deg, #1d4ed8, #3b82f6)",
+                boxShadow: hovered ? "0 0 20px rgba(59,130,246,0.35)" : "none",
+              }}
+            >
+              <i className="ri-external-link-line text-[11px]" />
+              Live Demo
+            </a>
+            <a
+              href={project.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} source code on GitHub`}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-slate-300 hover:text-white text-xs font-semibold transition-colors duration-200"
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <i className="ri-github-fill text-[11px]" />
+              Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function useReveal(ref) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll(".reveal").forEach((el, i) =>
+            setTimeout(() => el.classList.add("visible"), i * 100)
+          );
+        }
+      },
+      { threshold: 0.06 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [ref]);
+}
+
+export default function Projects() {
+  const ref = useRef(null);
+  useReveal(ref);
+
+  return (
+    <section id="projects" className="py-24 md:py-36 relative overflow-hidden"
+      style={{ background: "#0b0b14" }}
+    >
+      {/* Ambient orb */}
+      <div
+        className="orb absolute -left-32 bottom-0 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "rgba(99,102,241,0.05)", animationDelay: "-5s" }}
+        aria-hidden="true"
+      />
+
+      <div ref={ref} className="max-w-6xl mx-auto px-6">
+
+        {/* ── Header ── */}
+        <div className="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+          <div>
+            <p className="section-label mb-4">Featured work</p>
+            <h2
+              className="font-extrabold text-white leading-tight"
+              style={{ fontSize: "clamp(32px, 5vw, 56px)" }}
+            >
+              Things I've <span className="text-gradient">built</span>
+            </h2>
+          </div>
           <a
             href="https://github.com/Basanta-khatri-0311"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-teal-400 text-teal-400 px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-teal-400 hover:text-white transition-all duration-300"
+            className="btn-outline shrink-0 self-start sm:self-auto"
           >
-            View All Projects
-            <i className="ri-arrow-right-line"></i>
+            <i className="ri-github-fill" />
+            All on GitHub
           </a>
         </div>
+
+        {/* ── Project rows ── */}
+        <div className="space-y-4">
+          {PROJECTS.map((project, i) => (
+            <ProjectRow key={project.id} project={project} index={i} />
+          ))}
+        </div>
+
       </div>
     </section>
   );
-};
-
-export default Projects;
+}
