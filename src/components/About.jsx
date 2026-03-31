@@ -31,7 +31,7 @@ export default function About() {
   useReveal(ref);
 
   return (
-    <section id="about" className="py-24 md:py-36 bg-[#08080f] relative overflow-hidden">
+    <section id="about" className="py-24 md:py-36 bg-[#08080f] relative overflow-hidden scroll-mt-20">
       {/* Faint right-side ambient */}
       <div
         className="orb absolute -right-32 top-0 w-[500px] h-[500px] pointer-events-none"

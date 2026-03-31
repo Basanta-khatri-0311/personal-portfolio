@@ -87,7 +87,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 bg-[#08080f] relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-36 bg-[#08080f] relative overflow-hidden scroll-mt-20">
       {/* Ambient orb */}
       <div
         className="orb absolute -right-20 top-0 w-[480px] h-[480px] pointer-events-none"

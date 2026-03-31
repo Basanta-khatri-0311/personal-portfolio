@@ -151,7 +151,7 @@ export default function Hero() {
               style={{ opacity: 0, transform: "translateY(16px)", transition: "opacity .6s ease, transform .6s ease" }}
               className="flex flex-wrap gap-3 mb-10"
             >
-              <a href="#projects" className="btn-primary">
+              <a href="#work" className="btn-primary">
                 View My Work <i className="ri-arrow-right-line" />
               </a>
               <a href="#contact" className="btn-outline">

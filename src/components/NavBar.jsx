@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const LINKS = ["home", "about", "projects", "contact"];
+const LINKS = ["home", "about", "work", "contact"];
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -8,6 +8,24 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
 
   const RESUME = "/resume.pdf";
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const top = element.offsetTop;
+      window.scrollTo({
+        top: top,
+        behavior: "smooth",
+      });
+      // Update active state
+      setActive(id);
+      // Close mobile menu
+      setOpen(false);
+      // Clean URL (optional: remove the hash from URL if it exists)
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  };
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -20,7 +38,10 @@ export default function NavBar() {
       let cur = "home";
       LINKS.forEach((id) => {
         const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 100) cur = id;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) cur = id;
+        }
       });
       setActive(cur);
     };
@@ -44,6 +65,7 @@ export default function NavBar() {
           {/* Logo */}
           <a
             href="#home"
+            onClick={(e) => handleNavClick(e, "home")}
             className="flex items-center gap-3 group"
             aria-label="Basanta Khatri – Home"
           >
@@ -64,6 +86,7 @@ export default function NavBar() {
               <a
                 key={id}
                 href={`#${id}`}
+                onClick={(e) => handleNavClick(e, id)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 capitalize ${
                   active === id
                     ? "text-white bg-white/8"
@@ -125,7 +148,7 @@ export default function NavBar() {
               <a
                 key={id}
                 href={`#${id}`}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, id)}
                 className={`px-4 py-3 rounded-xl text-sm font-semibold capitalize transition-all ${
                   active === id
                     ? "bg-blue-500/12 text-blue-400 border border-blue-500/20"
