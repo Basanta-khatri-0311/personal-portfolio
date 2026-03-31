@@ -15,13 +15,13 @@ const PROJECTS = [
   },
   {
     id: "02",
-    title: "SEO MetaTagLab",
-    category: "Developer Tool",
-    year: "2024",
+    title: "METAlab Studio",
+    category: "Technical SEO Suite",
+    year: "2024", 
     description:
-      "A meta tag generator with live browser preview, Open Graph and Twitter Card support, and one-click clipboard copy.",
+      "A professional, industrial-grade SEO optimization suite built with React and Tailwind CSS v4. Features a 'True Dark' architecture for Meta Tag editing, JSON-LD Schema generation, XML Sitemaps, and Robots.txt protocols with live social simulations and local image upload processing.",
     image: "/projectimages/metataglab.png",
-    tags: ["React", "SEO", "Tools"],
+    tags: ["React", "Vite", "Tailwind v4", "Technical SEO"],
     live: "https://taglab-bk.netlify.app/",
     code: "https://github.com/Basanta-khatri-0311/seo-meta-generator",
   },
