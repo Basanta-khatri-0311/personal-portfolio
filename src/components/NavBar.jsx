@@ -133,15 +133,12 @@ export default function NavBar() {
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
         <aside
-          className={`absolute right-0 top-0 h-full w-72 bg-[#0e0e1a] border-l border-white/6 flex flex-col transition-transform duration-350 ease-out ${
+          className={`absolute right-0 top-0 h-full w-72 bg-[#0e0e1a]  flex flex-col transition-transform duration-350 ease-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex items-center justify-between px-5 py-5 border-b border-white/6">
+          <div className="flex items-center justify-between px-5 py-5">
             <span className="text-white font-semibold text-sm">Menu</span>
-            <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-slate-400 hover:text-white p-1">
-              <i className="ri-close-line text-xl" />
-            </button>
           </div>
           <nav className="flex flex-col gap-1 p-4">
             {LINKS.map((id) => (
@@ -169,7 +166,7 @@ export default function NavBar() {
               <i className="ri-download-2-line" /> Resume
             </a>
           </nav>
-          <div className="mt-auto p-5 border-t border-white/6">
+          <div className="mt-auto p-5 ">
             <p className="text-slate-400 text-xs mb-3">Find me on</p>
             <div className="flex gap-2">
               {[

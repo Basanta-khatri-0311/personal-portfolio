@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const ROLES = ["Frontend Developer", "React Specialist", "UI/UX Enthusiast", "Problem Solver"];
+const ROLES = ["Fullstack Developer", "MERN Stack Specialist", "UI/UX Developer", "Problem Solver"];
 
 function useTypewriter(words) {
   const [text, setText] = useState("");
@@ -140,9 +140,9 @@ export default function Hero() {
               style={{ opacity: 0, transform: "translateY(16px)", transition: "opacity .6s ease, transform .6s ease" }}
               className="text-slate-400 text-base leading-relaxed max-w-[420px] mb-8"
             >
-              I craft clean, fast, and accessible web interfaces that users actually
-              enjoy. Focused on React, modern CSS and the small details that make
-              everything feel polished.
+              I build scalable full-stack applications with a focus on seamless user
+              experiences. Specializing in the MERN stack to bridge the gap between
+              complex backend logic and intuitive frontend design.
             </p>
 
             {/* CTA buttons */}
@@ -228,7 +228,7 @@ export default function Hero() {
                 {/* Name tag at bottom */}
                 <div className="absolute bottom-5 left-5 right-5">
                   <p className="text-white font-bold text-base">Basanta Khatri</p>
-                  <p className="text-blue-400 text-xs font-medium mt-0.5">Frontend Developer</p>
+                  <p className="text-blue-400 text-xs font-medium mt-0.5">Fullstack Developer</p>
                 </div>
               </div>
 

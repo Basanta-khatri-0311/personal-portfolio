@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from "react";
 
 // Simple tech tag list — no bars, no percentages, no heavy cards
 const STACK = [
-  "React", "JavaScript", "Tailwind CSS",
-  "HTML", "CSS", "Git",
-  "Responsive Design", "REST APIs", "Figma",
+  "React", "Node.js", "Express.js",
+  "MongoDB", "JavaScript", "Tailwind CSS",
+  "PWA", "REST APIs", "Git",
 ];
 
 function useReveal(ref, delay = 0) {
@@ -59,16 +59,16 @@ export default function About() {
           {/* Left — Bio text (3 cols) */}
           <div className="lg:col-span-3 space-y-5">
             <p className="reveal text-slate-300 text-base md:text-lg leading-relaxed">
-              I'm Basanta — a self-taught frontend developer based in Nepal with a genuine
-              passion for building things on the web. Over the past year, I've worked on
-              projects ranging from spiritual reading apps to productivity tools,
-              always focusing on clean code and polished user experiences.
+              I'm Basanta — a full-stack developer based in Nepal who loves turning 
+              complex problems into simple, functional digital solutions. My journey 
+              started with a curiosity for how things work on the web, which led me 
+              to master the MERN stack.
             </p>
             <p className="reveal text-slate-400 text-base leading-relaxed">
-              I believe good design and good code go hand in hand. I care deeply about
-              accessibility, performance and the little interactions that make an interface
-              feel alive. When I'm not coding, I explore design systems or contribute to
-              open source.
+              I focus on building applications that aren't just visually appealing 
+              but also reliable and performant. Whether it's crafting an offline-first 
+              bookkeeping system like KHATA or developing SEO toolkits like MetaTagLab, 
+              I'm always looking for ways to build tools that solve real-world problems.
             </p>
 
             {/* Quick facts row */}
@@ -77,9 +77,9 @@ export default function About() {
                 { icon: "ri-map-pin-2-line", text: "Nepal" },
                 { icon: "ri-time-line", text: "1+ yr Experience" },
                 { icon: "ri-graduation-cap-line", text: "Self-taught" },
-                { icon: "ri-code-s-slash-line", text: "5+ Projects" },
+                { icon: "ri-code-s-slash-line", text: "Built 5+ Apps" },
                 { icon: "ri-heart-line", text: "Open to Work" },
-                { icon: "ri-translate-2", text: "English / Nepali/ Hindi" },
+                { icon: "ri-translate-2", text: "English / Nepali / Hindi" },
               ].map((f) => (
                 <div key={f.text} className="flex items-center gap-2">
                   <i className={`${f.icon} text-blue-400 text-sm shrink-0`} />
@@ -118,10 +118,10 @@ export default function About() {
               }}
             >
               <p className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-1">
-                Currently Learning
+                Currently Exploring
               </p>
               <p className="text-slate-300 text-sm">
-                TypeScript · Next.js · Node.js
+                Next.js · TypeScript · System Design
               </p>
             </div>
           </div>

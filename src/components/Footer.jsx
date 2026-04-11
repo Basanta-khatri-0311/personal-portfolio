@@ -44,7 +44,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-white font-bold text-sm">Basanta Khatri</p>
-                <p className="text-slate-600 text-[11px]">Frontend Developer</p>
+                <p className="text-slate-600 text-[11px]">Fullstack Developer</p>
               </div>
             </div>
 

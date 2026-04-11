@@ -1,21 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const PROJECTS = [
-  
   {
     id: "01",
-    title: "METAlab Studio",
-    category: "Technical SEO Suite",
+    title: "KHATA",
+    category: "Full-Stack PWA",
+    year: "2024",
+    description:
+      "A digital bookkeeping platform for small businesses to track transactions and credit sales. Features an offline-first architecture for reliable data management without internet and automated WhatsApp reminders for credit recovery.",
+    image: "/projectimages/khata.png",
+    tags: ["MERN Stack", "PWA", "Offline Sync", "Redux"],
+    live: "https://khata-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/khata-saas",
+  },
+  {
+    id: "02",
+    title: "MetaTagLab",
+    category: "SEO Toolkit",
     year: "2024", 
     description:
-      "A professional, industrial-grade SEO suite featuring Meta Tag editing, JSON-LD generation, XML Sitemaps, and live social simulations with a 'True Dark' architecture.",
+      "A professional SEO suite designed to simplify metadata management. Generate meta tags, sitemaps, and schema markup with real-time previews for social sharing and search engine visibility.",
     image: "/projectimages/metataglab.png",
-    tags: ["React", "Vite", "Tailwind v4", "Technical SEO"],
+    tags: ["React", "Vite", "Tailwind CSS", "Technical SEO"],
     live: "https://taglab-bk.netlify.app/",
     code: "https://github.com/Basanta-khatri-0311/seo-meta-generator",
   },
   {
-    id: "02",
+    id: "03",
     title: "DharmaVerse",
     category: "Web App",
     year: "2024",
@@ -27,7 +38,7 @@ const PROJECTS = [
     code: "https://github.com/Basanta-khatri-0311/dharmaverse",
   },
   {
-    id: "03",
+    id: "04",
     title: "ApplyFlow",
     category: "Productivity",
     year: "2024",
