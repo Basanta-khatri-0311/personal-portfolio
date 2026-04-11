@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://basantakhatri.dev/sitemap.xml
+Sitemap: https://kbasanta.com.np/sitemap.xml
