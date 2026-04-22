@@ -3,33 +3,63 @@ import React, { useEffect, useRef, useState } from "react";
 const PROJECTS = [
   {
     id: "01",
-    title: "KHATA",
-    category: "Full-Stack PWA",
+    title: "CAB Digital Portal",
+    category: "Full-Stack System",
     year: "2024",
     description:
-      "A digital bookkeeping platform for small businesses to track transactions and credit sales. Features an offline-first architecture for reliable data management without internet and automated WhatsApp reminders for credit recovery.",
-    image: "/projectimages/khata.png",
-    tags: ["MERN Stack", "PWA", "Offline Sync", "Redux"],
-    live: "https://khata-bk.netlify.app/",
-    code: "https://github.com/Basanta-khatri-0311/khata-saas",
+      "A full-stack platform designed to digitize operations of a regional cricket association. Includes a financial ledger system, role-based authentication, and a dynamic CMS for managing players, projects, and organizational content.",
+    image: "/projectimages/cab.png",
+    tags: [
+      "MERN Stack",
+      "RBAC",
+      "JWT Auth",
+      "MongoDB",
+      "Cloudinary",
+      "Performance Optimization"
+    ],
+    live: "https://ca-bhaluhi.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/cab",
   },
   {
     id: "02",
-    title: "MetaTagLab",
-    category: "SEO Toolkit",
-    year: "2024", 
+    title: "KHATA",
+    category: "Full-Stack PWA",
+    year: "2026",
     description:
-      "A professional SEO suite designed to simplify metadata management. Generate meta tags, sitemaps, and schema markup with real-time previews for social sharing and search engine visibility.",
-    image: "/projectimages/metataglab.png",
-    tags: ["React", "Vite", "Tailwind CSS", "Technical SEO"],
-    live: "https://taglab-bk.netlify.app/",
-    code: "https://github.com/Basanta-khatri-0311/seo-meta-generator",
+      "A digital bookkeeping platform for small businesses to manage income, expenses, and credit sales. Built with an offline-first architecture and integrated payment reminders for improved financial tracking.",
+    image: "/projectimages/khata.png",
+    tags: [
+      "MERN Stack",
+      "PWA",
+      "Offline Sync",
+      "State Management"
+    ],
+    live: "https://khata-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/khata-saas"
   },
+
   {
     id: "03",
+    title: "MetaTagLab",
+    category: "Developer Tool",
+    year: "2025",
+    description:
+      "A web-based SEO toolkit that generates meta tags, sitemaps, robots.txt, and schema markup with real-time previews for search engines and social platforms.",
+    image: "/projectimages/metataglab.png",
+    tags: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Technical SEO"
+    ],
+    live: "https://taglab-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/seo-meta-generator"
+  },
+  {
+    id: "04",
     title: "DharmaVerse",
     category: "Web App",
-    year: "2024",
+    year: "2025",
     description:
       "A spiritual verses reading app featuring full-text search, category filtering, dark mode and bookmarking — all without a backend.",
     image: "/projectimages/dharmaverse.png",
@@ -40,15 +70,20 @@ const PROJECTS = [
   {
     id: "04",
     title: "ApplyFlow",
-    category: "Productivity",
-    year: "2024",
+    category: "Productivity Tool",
+    year: "2025",
     description:
-      "A job application tracker with Kanban-style status columns, analytics dashboard and fully persistent local storage.",
+      "A job application tracker featuring Kanban-style workflow management, application status tracking, and persistent local storage for seamless user experience.",
     image: "/projectimages/applyflow.png",
-    tags: ["React", "Data Viz", "Tailwind CSS"],
+    tags: [
+      "React",
+      "State Management",
+      "Tailwind CSS",
+      "LocalStorage"
+    ],
     live: "https://applyflow-bk.netlify.app/",
-    code: "https://github.com/Basanta-khatri-0311/CareerTrackr",
-  },
+    code: "https://github.com/Basanta-khatri-0311/CareerTrackr"
+  }
 ];
 
 function ProjectCard({ project, index }) {
