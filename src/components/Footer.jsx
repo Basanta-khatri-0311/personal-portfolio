@@ -101,9 +101,8 @@ export default function Footer() {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Back to top"
-        className={`fixed bottom-7 right-7 z-50 w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm transition-all duration-300 ${
-          showTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
-        }`}
+        className={`fixed bottom-7 right-7 z-50 w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm transition-all duration-300 ${showTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
+          }`}
         style={{
           background: "linear-gradient(135deg, #1d4ed8, #3b82f6)",
           boxShadow: "0 4px 20px rgba(59,130,246,0.3)",
