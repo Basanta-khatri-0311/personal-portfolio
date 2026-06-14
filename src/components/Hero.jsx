@@ -212,7 +212,7 @@ export default function Hero() {
                 }}
               >
                 <img
-                  src="/profile.jpg"
+                  src="/public/profile.JPG"
                   alt="Basanta Khatri – Frontend Developer"
                   className="w-full h-full object-cover object-center"
                   fetchpriority="high"
