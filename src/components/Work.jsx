@@ -1,8 +1,46 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const PROJECTS = [
+  
+
   {
     id: "01",
+    title: "CMS",
+    category: "Full-Stack CRM",
+    year: "2025",
+    description:
+      "A production-level  CRM system built for real-world business workflows and finance management for consultancies. Features role-based access control, RESTful APIs, reusable React components, and centralized error handling with MongoDB-backed business logic.",
+    image: "/projectimages/fms.png",
+    tags: [
+      "MERN Stack",
+      "RBAC",
+      "JWT Auth",
+      "REST API",
+      "Tailwind CSS",
+      "MongoDB"
+    ],
+    live: "https://fms-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/fms",
+  },
+    {
+    id: "02",
+    title: "KHATA",
+    category: "Full-Stack PWA",
+    year: "2026",
+    description:
+      "A digital bookkeeping platform for small businesses to manage income, expenses, and credit sales. Built with an offline-first architecture and integrated payment reminders for improved financial tracking.",
+    image: "/projectimages/khata.png",
+    tags: [
+      "MERN Stack",
+      "PWA",
+      "Offline Sync",
+      "State Management"
+    ],
+    live: "https://khata-bk.netlify.app/",
+    code: "https://github.com/Basanta-khatri-0311/khata-saas"
+  },
+  {
+    id: "03",
     title: "CAB Digital Portal",
     category: "Full-Stack System",
     year: "2024",
@@ -21,25 +59,7 @@ const PROJECTS = [
     code: "https://github.com/Basanta-khatri-0311/cab",
   },
   {
-    id: "02",
-    title: "KHATA",
-    category: "Full-Stack PWA",
-    year: "2026",
-    description:
-      "A digital bookkeeping platform for small businesses to manage income, expenses, and credit sales. Built with an offline-first architecture and integrated payment reminders for improved financial tracking.",
-    image: "/projectimages/khata.png",
-    tags: [
-      "MERN Stack",
-      "PWA",
-      "Offline Sync",
-      "State Management"
-    ],
-    live: "https://khata-bk.netlify.app/",
-    code: "https://github.com/Basanta-khatri-0311/khata-saas"
-  },
-
-  {
-    id: "03",
+    id: "04",
     title: "MetaTagLab",
     category: "Developer Tool",
     year: "2025",
@@ -55,35 +75,6 @@ const PROJECTS = [
     live: "https://taglab-bk.netlify.app/",
     code: "https://github.com/Basanta-khatri-0311/seo-meta-generator"
   },
-  {
-    id: "04",
-    title: "DharmaVerse",
-    category: "Web App",
-    year: "2025",
-    description:
-      "A spiritual verses reading app featuring full-text search, category filtering, dark mode and bookmarking — all without a backend.",
-    image: "/projectimages/dharmaverse.png",
-    tags: ["React", "Tailwind CSS", "LocalStorage"],
-    live: "https://dharmaverse-bk.netlify.app/",
-    code: "https://github.com/Basanta-khatri-0311/dharmaverse",
-  },
-  {
-    id: "05",
-    title: "ApplyFlow",
-    category: "Productivity Tool",
-    year: "2025",
-    description:
-      "A job application tracker featuring Kanban-style workflow management, application status tracking, and persistent local storage for seamless user experience.",
-    image: "/projectimages/applyflow.png",
-    tags: [
-      "React",
-      "State Management",
-      "Tailwind CSS",
-      "LocalStorage"
-    ],
-    live: "https://applyflow-bk.netlify.app/",
-    code: "https://github.com/Basanta-khatri-0311/CareerTrackr"
-  }
 ];
 
 function ProjectCard({ project, index }) {
