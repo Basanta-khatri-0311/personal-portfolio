@@ -116,7 +116,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
 
           {/* ── Left — Info ── */}
-          <div className="lg:col-span-2 space-y-4 reveal-left">
+          <div className="lg:col-span-2 space-y-8 reveal-left">
             {METHODS.map((m) => (
               <a
                 key={m.label}
@@ -138,7 +138,7 @@ export default function Contact() {
                 }}
               >
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                  className="sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0"
                   style={{ background: "rgba(59,130,246,0.1)" }}
                 >
                   <i className={`${m.icon} text-blue-400 text-lg`} />

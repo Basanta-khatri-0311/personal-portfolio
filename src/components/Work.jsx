@@ -226,7 +226,7 @@ export default function Work() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-around sm:-ml-14 gap-6 mb-16">
           <div>
             <p className="section-label mb-4">Portfolio</p>
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">

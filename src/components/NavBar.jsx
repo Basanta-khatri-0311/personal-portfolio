@@ -56,7 +56,7 @@ export default function NavBar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#08080f]/95 backdrop-blur-xl border-b border-white/5 py-4"
+            ? "bg-[#08080f]/40 backdrop-blur-xl border-b border-white/5 py-4"
             : "bg-transparent py-6"
         }`}
       >
@@ -133,7 +133,7 @@ export default function NavBar() {
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
         <aside
-          className={`absolute right-0 top-0 h-full w-72 bg-[#0e0e1a]  flex flex-col transition-transform duration-350 ease-out ${
+          className={`absolute right-0 top-0 h-full w-72 bg-[#0e0e1a]/60 backdrop-blur-2xl flex flex-col transition-transform duration-350 ease-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
