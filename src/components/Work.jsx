@@ -219,14 +219,14 @@ export default function Work() {
   };
 
   return (
-    <section id="work" className="py-24 md:py-36 relative overflow-hidden scroll-mt-20">
+    <section id="work" className="py-24 md:py-28 bg-transparent relative overflow-hidden scroll-mt-20">
       {/* Background Gradients */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none" />
 
-      <div ref={ref} className="max-w-7xl mx-auto px-6">
+      <div ref={ref} className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-around sm:-ml-14 gap-6 mb-16">
+        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between w-full gap-6 mb-16">
           <div>
             <p className="section-label mb-4">Portfolio</p>
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
@@ -234,7 +234,7 @@ export default function Work() {
             </h2>
           </div>
           
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
              <button 
                 onClick={() => scroll('left')}
                 className="w-14 h-14 flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-all active:scale-95 group/btn"

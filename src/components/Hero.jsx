@@ -59,7 +59,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-transparent"
+      className="relative min-h-screen flex items-center overflow-hidden bg-transparent mt-10"
     >
       {/* Subtle ambient orbs — keep them very faint */}
       <div
