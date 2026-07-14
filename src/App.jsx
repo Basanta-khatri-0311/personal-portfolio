@@ -5,10 +5,12 @@ import About from './components/About';
 import Work from './components/Work';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackgroundEffects from './components/BackgroundEffects';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <BackgroundEffects />
       <NavBar />
       <main>
         <Hero />
