@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useTheme } from "../ThemeContext";
 
 const LINKS = ["home", "about", "work", "contact"];
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("home");
-  const [open, setOpen] = useState(false);
+  const [active,   setActive]   = useState("home");
+  const [open,     setOpen]     = useState(false);
+  const { tokens, mode }        = useTheme();
 
   const RESUME = "/resume.pdf";
 
@@ -13,16 +15,9 @@ export default function NavBar() {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const top = element.offsetTop;
-      window.scrollTo({
-        top: top,
-        behavior: "smooth",
-      });
-      // Update active state
+      window.scrollTo({ top: element.offsetTop, behavior: "smooth" });
       setActive(id);
-      // Close mobile menu
       setOpen(false);
-      // Clean URL (optional: remove the hash from URL if it exists)
       window.history.replaceState(null, "", window.location.pathname);
     }
   };
@@ -38,10 +33,7 @@ export default function NavBar() {
       let cur = "home";
       LINKS.forEach((id) => {
         const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) cur = id;
-        }
+        if (el && el.getBoundingClientRect().top <= 120) cur = id;
       });
       setActive(cur);
     };
@@ -52,13 +44,16 @@ export default function NavBar() {
 
   return (
     <>
-      {/* ── Main Navbar ──────────────────────────────────────────────── */}
+      {/* ── Main Navbar ───────────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#08080f]/40 backdrop-blur-xl border-b border-white/5 py-4"
-            : "bg-transparent py-6"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{
+          padding: scrolled ? "16px 0" : "24px 0",
+          background: scrolled ? tokens.navBg : "transparent",
+          backdropFilter: scrolled ? "blur(20px)" : "none",
+          borderBottom: scrolled ? `1px solid ${tokens.navBorder}` : "none",
+          transition: "padding 0.4s ease, background 0.4s ease, border-color 0.6s ease, backdrop-filter 0.4s ease",
+        }}
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
@@ -70,12 +65,15 @@ export default function NavBar() {
             aria-label="Basanta Khatri – Home"
           >
             <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm text-white transition-colors duration-200"
+              className="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm text-white transition-colors duration-500"
               style={{ background: "linear-gradient(135deg, #1d4ed8, #3b82f6)" }}
             >
               BK
             </div>
-            <span className="text-white font-semibold text-sm hidden sm:block opacity-80 group-hover:opacity-100 transition-opacity">
+            <span
+              className="font-semibold text-sm hidden sm:block opacity-80 group-hover:opacity-100 transition-all duration-500"
+              style={{ color: tokens.text }}
+            >
               Basanta Khatri
             </span>
           </a>
@@ -87,11 +85,25 @@ export default function NavBar() {
                 key={id}
                 href={`#${id}`}
                 onClick={(e) => handleNavClick(e, id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 capitalize ${
+                className="px-4 py-2 rounded-lg text-sm font-medium capitalize transition-all duration-300"
+                style={
                   active === id
-                    ? "text-white bg-white/8"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
-                }`}
+                    ? {
+                        color: tokens.activeText,
+                        background: tokens.activePill,
+                        border: `1px solid ${tokens.activeBorder}`,
+                      }
+                    : {
+                        color: tokens.textMuted,
+                        border: "1px solid transparent",
+                      }
+                }
+                onMouseEnter={(e) => {
+                  if (active !== id) e.currentTarget.style.color = tokens.linkHover;
+                }}
+                onMouseLeave={(e) => {
+                  if (active !== id) e.currentTarget.style.color = tokens.textMuted;
+                }}
               >
                 {id}
               </a>
@@ -114,31 +126,46 @@ export default function NavBar() {
 
           {/* Mobile burger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg transition-colors"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
+            style={{ background: open ? tokens.activePill : "transparent" }}
           >
-            <span className={`block h-[1.5px] bg-slate-300 transition-all duration-300 ${open ? "w-5 rotate-45 translate-y-[6px]" : "w-5"}`} />
-            <span className={`block h-[1.5px] bg-slate-300 transition-all duration-200 ${open ? "w-0 opacity-0" : "w-4"}`} />
-            <span className={`block h-[1.5px] bg-slate-300 transition-all duration-300 ${open ? "w-5 -rotate-45 -translate-y-[6px]" : "w-5"}`} />
+            <span
+              className={`block h-[1.5px] transition-all duration-300 ${open ? "w-5 rotate-45 translate-y-[6px]" : "w-5"}`}
+              style={{ background: tokens.text }}
+            />
+            <span
+              className={`block h-[1.5px] transition-all duration-200 ${open ? "w-0 opacity-0" : "w-4"}`}
+              style={{ background: tokens.text }}
+            />
+            <span
+              className={`block h-[1.5px] transition-all duration-300 ${open ? "w-5 -rotate-45 -translate-y-[6px]" : "w-5"}`}
+              style={{ background: tokens.text }}
+            />
           </button>
         </div>
       </header>
 
-      {/* ── Mobile Drawer ─────────────────────────────────────────────── */}
+      {/* ── Mobile Drawer ─────────────────────────────── */}
       <div
         className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setOpen(false)} />
         <aside
-          className={`absolute right-0 top-0 h-full w-72 bg-[#0e0e1a]/60 backdrop-blur-2xl flex flex-col transition-transform duration-350 ease-out ${
+          className={`absolute right-0 top-0 h-full w-72 flex flex-col transition-transform duration-350 ease-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
+          style={{
+            background: tokens.navBg,
+            backdropFilter: "blur(24px)",
+            borderLeft: `1px solid ${tokens.navBorder}`,
+          }}
         >
           <div className="flex items-center justify-between px-5 py-5">
-            <span className="text-white font-semibold text-sm">Menu</span>
+            <span className="font-semibold text-sm" style={{ color: tokens.text }}>Menu</span>
           </div>
           <nav className="flex flex-col gap-1 p-4">
             {LINKS.map((id) => (
@@ -146,11 +173,12 @@ export default function NavBar() {
                 key={id}
                 href={`#${id}`}
                 onClick={(e) => handleNavClick(e, id)}
-                className={`px-4 py-3 rounded-xl text-sm font-semibold capitalize transition-all ${
+                className="px-4 py-3 rounded-xl text-sm font-semibold capitalize transition-all"
+                style={
                   active === id
-                    ? "bg-blue-500/12 text-blue-400 border border-blue-500/20"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
-                }`}
+                    ? { background: tokens.activePill, color: tokens.activeText, border: `1px solid ${tokens.activeBorder}` }
+                    : { color: tokens.textMuted, border: "1px solid transparent" }
+                }
               >
                 {id}
               </a>
@@ -166,17 +194,25 @@ export default function NavBar() {
               <i className="ri-download-2-line" /> Resume
             </a>
           </nav>
-          <div className="mt-auto p-5 ">
-            <p className="text-slate-400 text-xs mb-3">Find me on</p>
+          <div className="mt-auto p-5">
+            <p className="text-xs mb-3" style={{ color: tokens.textMuted }}>Find me on</p>
             <div className="flex gap-2">
               {[
-                { i: "ri-github-fill", u: "https://github.com/Basanta-khatri-0311", label: "GitHub" },
-                { i: "ri-linkedin-fill", u: "https://linkedin.com/in/basanta-khatri", label: "LinkedIn" },
-                { i: "ri-mail-line", u: "mailto:khatribasanta.works09@gmail.com", label: "Email" },
+                { i: "ri-github-fill",   u: "https://github.com/Basanta-khatri-0311",          label: "GitHub"   },
+                { i: "ri-linkedin-fill", u: "https://linkedin.com/in/basanta-khatri",           label: "LinkedIn" },
+                { i: "ri-mail-line",     u: "mailto:khatribasanta.works09@gmail.com",           label: "Email"    },
               ].map((s) => (
-                <a key={s.label} href={s.u} target="_blank" rel="noopener noreferrer"
+                <a
+                  key={s.label}
+                  href={s.u}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-xl bg-white/4 border border-white/7 flex items-center justify-center text-slate-500 hover:text-blue-400 transition-colors">
+                  className="w-9 h-9 rounded-xl flex items-center justify-center transition-colors"
+                  style={{ background: tokens.socialBg, border: `1px solid ${tokens.socialBorder}`, color: tokens.textMuted }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = tokens.socialHover)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = tokens.textMuted)}
+                >
                   <i className={`${s.i} text-sm`} />
                 </a>
               ))}

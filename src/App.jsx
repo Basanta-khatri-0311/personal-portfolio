@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from './ThemeContext';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,17 +10,19 @@ import BackgroundEffects from './components/BackgroundEffects';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col relative">
-      <BackgroundEffects />
-      <NavBar />
-      <main>
-        <Hero />
-        <About />
-        <Work />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col relative">
+        <BackgroundEffects />
+        <NavBar />
+        <main>
+          <Hero />
+          <About />
+          <Work />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 
