@@ -30,7 +30,7 @@ function useTypewriter(words) {
 const SOCIALS = [
   { label: "GitHub", icon: "ri-github-fill", url: "https://github.com/Basanta-khatri-0311" },
   { label: "LinkedIn", icon: "ri-linkedin-fill", url: "https://linkedin.com/in/basanta-khatri" },
-  { label: "Instagram", icon: "ri-instagram-line", url: "https://instagram.com/basant_khatri__11" },
+  { label: "Instagram", icon: "ri-instagram-line", url: "https://www.instagram.com/basantak.me.09/" },
   { label: "Email", icon: "ri-mail-line", url: "mailto:khatribasanta.works09@gmail.com" },
 ];
 
